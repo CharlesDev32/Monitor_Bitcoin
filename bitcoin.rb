@@ -1,3 +1,10 @@
+# ============================================
+#  Bitcoin Price Fetcher
+#  Author: CharlesDev32
+#  Created on: 07/07/2025
+#  Version: 1.0
+# ============================================
+
 require 'net/http'       # Loads the standard library to perform HTTP requests
 require 'json'           # Loads the standard library to parse JSON strings into Ruby hashes
 
@@ -57,9 +64,9 @@ puts "Press Ctrl + C to stop.\n\n"
 # Infinite loop that fetches and displays the price at defined intervals
 loop do
   begin
-    BitcoinPriceFetcher.new.actual_price
-  rescue StandardError => e
+    BitcoinPriceFetcher.new.actual_price        # Calls the method to fetch and display price
+  rescue StandardError => e                     # Handles any runtime error
     puts "[#{Time.now.strftime('%H:%M:%S')}] Error: #{e.class} - #{e.message}"
   end
-  sleep interval
+  sleep interval                                # Waits before the next fetch
 end
